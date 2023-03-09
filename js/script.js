@@ -48,6 +48,7 @@ titleContainer.classList.add('title');
 descContainer.append(titleContainer);
 descContainer.append(textContainer);
 
+//CREATE THUMBNAILS
 for (let i = 0; i < images.length; i++) {
 
     let newThumbnail = document.createElement('img');
@@ -66,50 +67,10 @@ const thumbnailEl = document.querySelectorAll('.container #thumbnails .thumbnail
 thumbnailEl[index].classList.add("active");
 
 //ARROW CLICK UP
-arrowDown.addEventListener("click", function() {
-
-    thumbnailEl[index].classList.remove("active");
-
-    if (index < images.length - 1) {
-
-        index++;
-
-    } else {
-
-        index = 0;
-
-    };
-
-    activeImg.src = images[index].image;
-    titleContainer.innerHTML=images[index].title;
-    textContainer.innerHTML=images[index].text;
-
-    thumbnailEl[index].classList.add("active");
-    
-});
+arrowDown.addEventListener("click", changeActiveImg);
 
 //ARROW CLICK DOWN
-arrowUp.addEventListener("click", function() {
-
-    thumbnailEl[index].classList.remove("active");
-
-    if (index > 0) {
-
-        index--;
-
-    } else {
-
-        index = images.length - 1 ;
-
-    };
-
-    activeImg.src = images[index].image;
-    titleContainer.innerHTML=images[index].title;
-    textContainer.innerHTML=images[index].text;
-
-    thumbnailEl[index].classList.add("active");
-    
-});
+arrowUp.addEventListener("click", changeActiveImgReverse);
 
 //BONUS 2    
 //startAutoplay();
@@ -122,6 +83,8 @@ const reverseButton = document.getElementById('reverse-button');
 startButton.addEventListener('click', startAutoplay);
 stopButton.addEventListener('click', stopAutoplay);
 reverseButton.addEventListener('click', startAutoplayReverse);
+
+
 
 //FUNCTIONS---------------------------
 function changeActiveImg() {
