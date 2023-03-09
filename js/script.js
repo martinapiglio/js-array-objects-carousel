@@ -111,9 +111,27 @@ arrowUp.addEventListener("click", function() {
     
 });
 
+//BONUS 2
+setInterval( function() {
 
+    thumbnailEl[index].classList.remove("active");
 
+    if (index < images.length - 1) {
 
+        index++;
 
+    } else {
+
+        index = 0;
+
+    };
+
+    activeImg.src = images[index].image;
+    titleContainer.innerHTML=images[index].title;
+    textContainer.innerHTML=images[index].text;
+
+    thumbnailEl[index].classList.add("active");
+
+}, 3000);
 
 
