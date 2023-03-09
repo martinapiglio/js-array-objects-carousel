@@ -1,0 +1,54 @@
+/* common */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* /common */
+
+.container,
+.inner-container {
+    height: 320px;
+}
+
+.container #slider {
+    display: flex;
+    align-items: center;
+    
+    position: relative;
+    
+    overflow: hidden;
+}
+
+.container #slider .arrow {
+    position: absolute;
+    color: white;
+    cursor: pointer;
+}
+
+.container #slider .arrow#arrow-down {
+    bottom: 10px;
+    left: 50%;
+}
+
+.container #slider .arrow#arrow-up {
+    top: 10px;
+    left: 50%;
+}
+
+.container #thumbnails {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: black;
+}
+
+.container #thumbnails .thumbnail {
+    width: 200px;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.container #thumbnails .thumbnail.active {
+    opacity: 1;
+    border: 3px solid rgb(189, 255, 118);
+}
