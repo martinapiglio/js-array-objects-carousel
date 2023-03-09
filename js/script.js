@@ -111,9 +111,21 @@ arrowUp.addEventListener("click", function() {
     
 });
 
-//BONUS 2
-setInterval( function() {
+//BONUS 2    
+//startAutoplay();
 
+//BONUS 3 
+const startButton = document.getElementById('start-button');
+const stopButton = document.getElementById('stop-button');
+const reverseButton = document.getElementById('reverse-button');
+
+startButton.addEventListener('click', startAutoplay);
+stopButton.addEventListener('click', stopAutoplay);
+reverseButton.addEventListener('click', startAutoplayReverse);
+
+//FUNCTIONS---------------------------
+function changeActiveImg() {
+ 
     thumbnailEl[index].classList.remove("active");
 
     if (index < images.length - 1) {
@@ -132,6 +144,42 @@ setInterval( function() {
 
     thumbnailEl[index].classList.add("active");
 
-}, 3000);
+};
 
+function changeActiveImgReverse() {
 
+    thumbnailEl[index].classList.remove("active");
+
+    if (index > 0) {
+
+        index--;
+
+    } else {
+
+        index = images.length - 1 ;
+
+    };
+
+    activeImg.src = images[index].image;
+    titleContainer.innerHTML=images[index].title;
+    textContainer.innerHTML=images[index].text;
+
+    thumbnailEl[index].classList.add("active");
+
+}
+
+let autoPlay;
+
+function startAutoplay() {
+    autoPlay = setInterval(changeActiveImg, 3000)
+};
+  
+function stopAutoplay() {
+    clearInterval(autoPlay);
+};
+  
+let autoPlayReverse;
+
+function startAutoplayReverse() {
+    autoPlayReverse = setInterval(changeActiveImgReverse, 3000)
+};

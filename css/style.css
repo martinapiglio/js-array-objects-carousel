@@ -6,39 +6,40 @@
 }
 /* /common */
 
-.container,
 .inner-container {
-    height: 320px;
+    height: 310px;
 }
 
 .container #slider {
     display: flex;
     align-items: center;
-    
+
     position: relative;
     
     overflow: hidden;
 }
 
-.container #slider .arrow {
+.container #slider .desc {
     position: absolute;
-    color: white;
-    cursor: pointer;
-}
-
-.container #slider .arrow#arrow-down {
     bottom: 10px;
-    left: 50%;
+    right: 12px;
+
+    text-align: right;
+    color: white;
 }
 
-.container #slider .arrow#arrow-up {
-    top: 10px;
-    left: 50%;
+.container #slider .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: serif;
 }
 
 .container #thumbnails {
     display: flex;
     flex-flow: column nowrap;
+
+    position: relative;
+
     background-color: black;
 }
 
@@ -53,17 +54,33 @@
     border: 3px solid rgb(189, 255, 118);
 }
 
-.desc {
+.container #thumbnails .arrow {
     position: absolute;
-    bottom: 10px;
-    right: 12px;
 
-    text-align: right;
     color: white;
+    cursor: pointer;
 }
 
-.title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: serif;
+.container #thumbnails .arrow#arrow-down {
+    bottom: 2px;
+    left: 50%;
+}
+
+.container #thumbnails .arrow#arrow-up {
+    top: 2px;
+    left: 50%;
+}
+
+.container .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    padding-top: 1em;
+
+    font-size: large;
+}
+
+.container .buttons i{
+    cursor: pointer;
 }
