@@ -83,6 +83,7 @@ const reverseButton = document.getElementById('reverse-button');
 startButton.addEventListener('click', startAutoplay);
 stopButton.addEventListener('click', stopAutoplay);
 reverseButton.addEventListener('click', startAutoplayReverse);
+stopButton.addEventListener('click', stopAutoplayReverse);
 
 
 
@@ -145,4 +146,8 @@ let autoPlayReverse;
 
 function startAutoplayReverse() {
     autoPlayReverse = setInterval(changeActiveImgReverse, 3000)
+};
+
+function stopAutoplayReverse() {
+    clearInterval(autoPlayReverse);
 };
