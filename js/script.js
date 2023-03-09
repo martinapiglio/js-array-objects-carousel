@@ -2,7 +2,7 @@
 const images = [
     {
         image: 'img/01.webp',
-        title: 'Marvel\'s Spiderman Miles Morale',
+        title: 'Marvel\'s Spiderman Miles Morales',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
         image: 'img/02.webp',
@@ -34,7 +34,20 @@ let index = 0;
 //SET IMG SRC EQUAL TO FIRST IMG FROM THE ARRAY:
 activeImg.src = images[index].image;
 
-//BONUS 2
+//INSERT TITLE + DESC
+let descContainer = document.getElementById('desc-container');
+
+let titleContainer = document.createElement('div');
+let textContainer = document.createElement('div');
+
+titleContainer.innerHTML=images[index].title;
+textContainer.innerHTML=images[index].text;
+
+titleContainer.classList.add('title');
+
+descContainer.append(titleContainer);
+descContainer.append(textContainer);
+
 for (let i = 0; i < images.length; i++) {
 
     let newThumbnail = document.createElement('img');
@@ -68,6 +81,8 @@ arrowDown.addEventListener("click", function() {
     };
 
     activeImg.src = images[index].image;
+    titleContainer.innerHTML=images[index].title;
+    textContainer.innerHTML=images[index].text;
 
     thumbnailEl[index].classList.add("active");
     
@@ -89,7 +104,16 @@ arrowUp.addEventListener("click", function() {
     };
 
     activeImg.src = images[index].image;
+    titleContainer.innerHTML=images[index].title;
+    textContainer.innerHTML=images[index].text;
 
     thumbnailEl[index].classList.add("active");
     
 });
+
+
+
+
+
+
+
