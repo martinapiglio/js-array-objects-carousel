@@ -60,6 +60,13 @@ for (let i = 0; i < images.length; i++) {
 
     thumbnailContainer.append(newThumbnail);
 
+    newThumbnail.addEventListener('click', function() {
+        thumbnailEl[index].classList.remove("active");
+        index = i;
+        activeImg.src = images[i].image;
+        thumbnailEl[i].classList.add("active");
+    });
+
 }
 
 const thumbnailEl = document.querySelectorAll('.container #thumbnails .thumbnail');
